@@ -86,10 +86,11 @@ namespace FikaAmazonAPI.AmazonSpApiSDK.Models.CatalogItems.V20220401
         /// <param name="size">Name of the size associated with an Amazon catalog item..</param>
         /// <param name="style">Name of the style associated with an Amazon catalog item..</param>
         /// <param name="websiteDisplayGroup">Name of the website display group associated with an Amazon catalog item..</param>
+        /// <param name="isAdultProduct">Adult Product..</param>
         public ItemSummaryByMarketplace(string marketplaceId = default, string brand = default, ItemBrowseClassification browseClassification = default,
             string color = default, ItemClassificationEnum? itemClassification = default, string itemName = default, string manufacturer = default,
             string modelNumber = default, int? packageQuantity = default, string partNumber = default, DateTime? releaseDate = default,
-            string size = default, string style = default, string websiteDisplayGroup = default, string websiteDisplayGroupName = default)
+            string size = default, string style = default, string websiteDisplayGroup = default, string websiteDisplayGroupName = default,bool adultProduct = default)
         {
             // to ensure "marketplaceId" is required (not null)
             if (marketplaceId == null)
@@ -100,6 +101,7 @@ namespace FikaAmazonAPI.AmazonSpApiSDK.Models.CatalogItems.V20220401
             {
                 this.MarketplaceId = marketplaceId;
             }
+            this.AdultProduct = adultProduct;
             this.Brand = brand;
             this.BrowseClassification = browseClassification;
             this.Color = color;
@@ -151,6 +153,13 @@ namespace FikaAmazonAPI.AmazonSpApiSDK.Models.CatalogItems.V20220401
         /// <value>Name, or title, associated with an Amazon catalog item.</value>
         [DataMember(Name = "itemName", EmitDefaultValue = false)]
         public string ItemName { get; set; }
+
+        /// <summary>
+        /// Adult Product with an Amazon catalog item.
+        /// </summary>
+        /// <value>Adult Product Amazon catalog item.</value>
+        [DataMember(Name = "adultProduct", EmitDefaultValue = false)]
+        public bool AdultProduct { get; set; }
 
         /// <summary>
         /// Name of the manufacturer associated with an Amazon catalog item.
